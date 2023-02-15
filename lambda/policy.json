@@ -1,0 +1,43 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Effect": "Allow",
+          "Action": "lambda:InvokeFunction",
+          "Resource": "arn:aws:lambda:us-east-1:871991862394:function:stream_function"
+      },
+      {
+          "Effect": "Allow",
+          "Action": [
+              "dynamodb:DescribeStream",
+              "dynamodb:GetRecords",
+              "dynamodb:GetShardIterator",
+              "dynamodb:ListStreams"
+          ],
+          "Resource": "arn:aws:dynamodb:us-east-1:871991862394:table/test_table/stream/2023-02-16T13:27:00.831"
+      },
+      {
+          "Effect": "Allow",
+          "Action": "logs:CreateLogGroup",
+          "Resource": "arn:aws:logs:us-east-1:871991862394:*"
+      },
+      {
+          "Effect": "Allow",
+          "Action": [
+              "logs:CreateLogStream",
+              "logs:PutLogEvents"
+          ],
+          "Resource": [
+              "arn:aws:logs:us-east-1:871991862394:log-group:/aws/lambda/stream_function:*"
+          ]
+      },
+      {
+          "Sid": "AllObjectActions",
+          "Effect": "Allow",
+          "Action": "s3:*Object",
+          "Resource": [
+              "arn:aws:s3:::*/*"
+          ]
+      }
+  ]
+}
