@@ -14,5 +14,6 @@ services:
       https_proxy: "${HTTPS_PROXY}"
     volumes:
       - ./:/infra
+      - 'C:\Users\${WINDOWS_USER}\.aws\credentials/:/root/.aws/credentials'
     command: tail -f /dev/null
     working_dir: /infra
