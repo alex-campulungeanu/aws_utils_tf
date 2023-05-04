@@ -9,3 +9,5 @@ terraform apply
 ```
 docker-compose -f docker-compose.yml run --rm infra apply
 ```
+
+-auto-approve
