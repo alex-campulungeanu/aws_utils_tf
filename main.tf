@@ -20,10 +20,14 @@ provider "aws" {
 #   source = "./s3"
 # }
 
-module "lambda" {
-  source = "./lambda"
-}
+# module "lambda" {
+#   source = "./lambda"
+# }
 
 # module "ec2" {
 #   source = "./ec2"
 # }
+
+module "lambda" {
+  source = "./staticweb"
+}
